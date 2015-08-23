@@ -252,4 +252,41 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager manager = (NotificationManager)getSystemService(Service.NOTIFICATION_SERVICE);
         manager.notify(8, builder.build());
     }
+
+    /**
+     * すべての内容ををロックスクリーンに表示
+     */
+    private void setNotificationWitPublic() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
+        builder.setContentTitle("Public notification");
+        builder.setContentText("ロックスクリーンに表示される");
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC); // デフォルトはVISIBILITY_PRIVATE
+
+        builder.setAutoCancel(true);
+        NotificationManager manager = (NotificationManager)getSystemService(Service.NOTIFICATION_SERVICE);
+        manager.notify(9, builder.build());
+    }
+
+    /**
+     * ロックスクリーンと通常の通知の表示内容を分ける
+     */
+    private void setNotificationWithPrivate() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
+        builder.setContentTitle("ロックスクリーン用の通知");
+        builder.setContentText("ロックスクリーン用の表示");
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+
+        NotificationCompat.Builder privateBuilder = new NotificationCompat.Builder(getApplicationContext());
+        privateBuilder.setContentTitle("ロックスクリーンには表示されない通知");
+        privateBuilder.setContentText("ロックスクリーンには代替の通知が表示される。");
+        privateBuilder.setSmallIcon(R.mipmap.ic_launcher);
+        privateBuilder.setVisibility(NotificationCompat.VISIBILITY_PRIVATE);
+        privateBuilder.setPublicVersion(builder.build());
+
+        builder.setAutoCancel(true);
+        NotificationManager manager = (NotificationManager)getSystemService(Service.NOTIFICATION_SERVICE);
+        manager.notify(10, privateBuilder.build());
+    }
 }

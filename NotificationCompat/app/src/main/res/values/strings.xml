@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">NotificationCompat</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="show_notification">ノーティフィケーションを表示する</string>
+    <string name="show_big_icon">大きなアイコンで表示</string>
+    <string name="show_vibration">バイブレーションを使う</string>
+    <string name="show_launch_application">タップしてアプリを起動する</string>
+    <string name="show_big_text_style">BigTextStyleを使う</string>
+    <string name="show_big_picture_style">BigPictureStyleを使う</string>
+    <string name="show_inbox_style">InBoxStyleを使う</string>
+    <string name="show_button">ボタンを追加する</string>
+</resources>
